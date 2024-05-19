@@ -10,7 +10,7 @@ export default function Auth({ navigation }) {
                 <TextInput style={styles.input} placeholder='Enter your Email' />
                 <TextInput style={styles.input} secureTextEntry={true} placeholder='Enter Password' />
                 <Text>Forget password ?</Text>
-                <Pressable style={styles.btn} onPress={() => navigation.navigate('Home')}>
+                <Pressable style={styles.btn} onPress={() => navigation.navigate('User')}>
                     <Text style={styles.text}>Login</Text>
                 </Pressable>
                 <Text >Don’t have an account ?<Text style={styles.textUrl} onPress={() => navigation.navigate('Reg')}> Sign Up</Text> </Text>

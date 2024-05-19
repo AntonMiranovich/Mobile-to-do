@@ -12,7 +12,7 @@ export default function Reg({ navigation }) {
                 <TextInput style={styles.input} placeholder='Enter your Email' />
                 <TextInput style={styles.input} placeholder='Enter Password' />
                 <TextInput style={styles.input} placeholder='Confirm password' />
-                <Pressable style={styles.btn} onPress={() => navigation.navigate('Home')}>
+                <Pressable style={styles.btn} onPress={() => navigation.navigate('User')}>
                     <Text style={styles.text}>Register</Text>
                 </Pressable>
                 <Text >Already have an account ?<Text style={styles.textUrl} onPress={() => navigation.navigate('Auth')}> Sign In</Text> </Text>
