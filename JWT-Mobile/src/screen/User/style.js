@@ -43,23 +43,35 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#000000',
     },
-    wrapperTask:{
-        width:'80%',
-        backgroundColor:'white',
-        borderRadius:10,
-        gap:20
+    wrapperTask: {
+        width: '80%',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        gap: 20
     },
-    wrapperAdd:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    paddingHorizontal:15,
-    paddingTop:20,
-    alignItems:"center"
+    wrapperAdd: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
+        paddingTop: 20,
+        alignItems: "center"
     },
-    textDaily:{
+    textDaily: {
         color: 'grey',
         fontWeight: '600',
         fontSize: 12,
-    }
+    },
+    wrapperCheckbox: {
+        flexDirection: 'row',
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+    },
+    label: {
+        color: 'grey',
+        fontWeight: '600',
+        fontSize: 12,
+        marginLeft: 10
+    },
+
 })
 export default styles
