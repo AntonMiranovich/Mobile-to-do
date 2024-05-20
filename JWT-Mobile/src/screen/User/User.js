@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Text, View, Pressable, CheckBox, Alert } from 'react-native'
+import { Image, Text, View, Pressable, CheckBox, Alert, Modal, TextInput } from 'react-native'
 import styles from './style'
 
 export default function User() {
@@ -31,6 +31,10 @@ export default function User() {
         },
     ])
 
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const [addTaskValue, setAddTaskValue] = useState('')
+
     const changeData = (el) => {
         const resArray = date.map((elem) => el.id != elem.id ? elem : {
             id: el.id,
@@ -42,13 +46,43 @@ export default function User() {
     }
 
     const addTask = () => {
-        let addTitle = ''
-        Alert.prompt('Add Task', 'Add Name Task', (text) => addTitle = text)
-        setData([...date, { id: date.length + 1, title: addTitle, flag: false }])
+        setData([{ id: Math.floor(Math.random() * 100000000000) + 1, title: addTaskValue, flag: false }, ...date])
+        setAddTaskValue('')
+        setModalVisible(!modalVisible)
     }
 
     return (
         <View style={styles.container}>
+
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                    setModalVisible(!modalVisible);
+                }}>
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <Text style={styles.modalText}>Please Add Name Task</Text>
+                        <TextInput onChange={(e) => setAddTaskValue(e.target.value)} style={styles.input} />
+                        <View style={styles.wrapperBtnModal}>
+                            <Pressable
+                                style={[styles.button, styles.buttonClose]}
+                                onPress={addTask}>
+                                <Text style={styles.textStyle}>Add Task</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[styles.button, styles.buttonClose]}
+                                onPress={() => setModalVisible(!modalVisible)}>
+                                <Text style={styles.textStyle}>Close</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+
+
             <View style={styles.blocAvatar}>
                 <Image style={styles.imgAvatar} source={require('../../../assets/avatar.svg')} />
                 <Text style={styles.textAvatar}>Welcome Jeegar goyani</Text>
@@ -60,7 +94,7 @@ export default function User() {
             <View style={styles.wrapperTask}>
                 <View style={styles.wrapperAdd}>
                     <Text style={styles.textDaily}>Daily Task</Text>
-                    <Pressable onPress={addTask}>
+                    <Pressable onPress={() => setModalVisible(true)}>
                         <Image style={styles.imgAdd} source={require('../../../assets/add.png')} />
                     </Pressable>
                 </View>

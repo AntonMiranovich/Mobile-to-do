@@ -73,5 +73,61 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
 
+
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 50,
+    },
+    modalView: {
+        margin: 50,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    wrapperBtnModal: {
+        flexDirection: 'row',
+        gap: 10
+    },
+    button: {
+        marginTop: 10,
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonClose: {
+        backgroundColor: '#50C2C9',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: '600',
+        fontSize: 12,
+        textAlign: 'center',
+    },
+    modalText: {
+        color: 'grey',
+        fontWeight: '600',
+        fontSize: 18,
+        marginBottom: 15,
+        textAlign: 'center',
+    },
+    input: {
+        width: '80%',
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 5
+    },
+
 })
 export default styles
