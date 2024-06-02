@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Image, Text, View, Pressable, CheckBox, Alert, Modal, TextInput } from 'react-native'
 import styles from './style'
+import Clock from '../../components/Clock/Clock'
 
 export default function User() {
     const [date, setData] = useState([
@@ -89,6 +90,9 @@ export default function User() {
             </View>
 
             <View style={styles.wrapperTextGood}><Text style={styles.textGood}>Good Afternoon</Text></View>
+
+            <Clock />
+
             <View style={styles.wrapperTextList}><Text style={styles.textList}>Task list</Text></View>
 
             <View style={styles.wrapperTask}>
