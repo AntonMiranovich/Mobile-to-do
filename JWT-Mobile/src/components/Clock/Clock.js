@@ -1,16 +1,15 @@
 import { View, ImageBackground } from 'react-native'
 import styles from './style'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import img from '../../../assets/clock.png'
 
 export default function Clock() {
 	const [date, setDate] = useState()
 
-	useEffect(() => {
-		setInterval(() => {
-			setDate(new Date())
-		}, 1000)
-	}, [date])
+	setInterval(() => {
+		setDate(new Date())
+	}, 0.1)
+
 
 	return (
 		<View style={styles.container}>
@@ -18,17 +17,17 @@ export default function Clock() {
 				<ImageBackground source={img} resizeMode="cover" style={styles.image}>
 					<View style={styles.center} />
 					<View style={[styles.hour, {
-						transform: [{ rotateZ: `${new Date().getHours() * 30}deg` }],
+						transform: [{ rotateZ: `${date?.getHours() * 30}deg` }],
 					}]}>
 						<View style={styles.hr}></View>
 					</View>
 					<View style={[styles.min, {
-						transform: [{ rotateZ: `${new Date().getMinutes() * 6}deg` }],
+						transform: [{ rotateZ: `${date?.getMinutes() * 6}deg` }],
 					}]}>
 						<View style={styles.mn}></View>
 					</View>
 					<View style={[styles.sec, {
-						transform: [{ rotateZ: `${new Date().getSeconds() * 6}deg` }],
+						transform: [{ rotateZ: `${date?.getSeconds() * 6}deg` }],
 					}]}>
 						<View style={styles.sc}></View>
 					</View>
